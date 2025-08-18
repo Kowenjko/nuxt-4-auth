@@ -9,7 +9,7 @@ export default defineNuxtConfig({
       password: '',
       name: 'nau-session',
       cookie: {
-        maxAge: 60 * 60 * 24 * 7, // 7 days
+        maxAge: 60 * 24 * 7, // 7 days
       },
     },
   },

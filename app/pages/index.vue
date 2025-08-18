@@ -1,13 +1,9 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
- <div class="flex justify-center h-screen items-center">
-   <UButton>Button</UButton>
- </div>
+  <div class="flex justify-center h-screen items-center">
+    <UButton>Button</UButton>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
