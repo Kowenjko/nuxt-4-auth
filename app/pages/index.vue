@@ -1,8 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  middleware: ['auth'],
+})
+</script>
 
 <template>
-  <div class="flex justify-center h-screen items-center">
-    <UButton>Button</UButton>
+  <div class="p-10">
+    <h1 class="text-3xl text-center font-bold">Protected Page</h1>
   </div>
 </template>
 
