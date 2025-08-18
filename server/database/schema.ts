@@ -1,0 +1,16 @@
+import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+export const users = sqliteTable('users', (t) => ({
+  id: t.integer().primaryKey({ autoIncrement: true }),
+  name: t.text().notNull(),
+  email: t.text().notNull().unique(),
+  passwordHash: t.text().notNull(),
+  createdAt: t
+    .integer({ mode: 'timestamp_ms' })
+    .$defaultFn(() => new Date())
+    .notNull(),
+  updatedAt: t
+    .integer({ mode: 'timestamp_ms' })
+    .$defaultFn(() => new Date())
+    .$onUpdate(() => new Date())
+    .notNull(),
+}))

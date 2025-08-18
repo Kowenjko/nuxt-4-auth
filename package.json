@@ -7,9 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "migrations:generate": "drizzle-kit generate",
+    "migrations:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@libsql/client": "^0.15.12",
     "@nuxt/ui": "^3.3.2",
     "drizzle-orm": "^0.44.4",
     "nuxt": "^4.0.1",
