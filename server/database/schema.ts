@@ -1,4 +1,4 @@
-import { int, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import { sqliteTable } from 'drizzle-orm/sqlite-core'
 export const users = sqliteTable('users', (t) => ({
   id: t.integer().primaryKey({ autoIncrement: true }),
   name: t.text().notNull(),
