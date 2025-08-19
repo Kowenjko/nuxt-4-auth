@@ -14,8 +14,32 @@ const state = reactive({
   password: '',
 })
 
+const loading = ref(false)
+
+const toast = useToast()
+
 const onLogin = async (event: FormSubmitEvent<Schema>) => {
-  console.log(event)
+  loading.value = true
+  try {
+    const response = await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: event.data,
+    })
+
+    if (!response.success) {
+      throw Error('Login failed')
+    }
+
+    await navigateTo('/')
+  } catch {
+    toast.add({
+      color: 'error',
+      title: 'Failed to loading',
+      description: 'Please check your details and try again.',
+    })
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
@@ -35,7 +59,10 @@ const onLogin = async (event: FormSubmitEvent<Schema>) => {
         />
       </UFormField>
 
-      <UButton type="submit">Login</UButton>
+      <div class="flex justify-between items-center">
+        <UButton :loading type="submit">Login</UButton>
+        <nuxt-link to="/auth/register">Register</nuxt-link>
+      </div>
     </UForm>
   </div>
 </template>

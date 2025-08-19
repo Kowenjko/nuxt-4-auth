@@ -35,8 +35,8 @@ const toast = useToast()
 const session = useUserSession()
 
 const onRegister = async (event: FormSubmitEvent<Schema>) => {
+  loading.value = true
   try {
-    loading.value = true
     const response = await $fetch('/api/auth/register', {
       method: 'POST',
       body: {
@@ -91,7 +91,10 @@ const onRegister = async (event: FormSubmitEvent<Schema>) => {
           type="password"
         />
       </UFormField>
-      <UButton :loading type="submit">Register</UButton>
+      <div class="flex justify-between items-center">
+        <UButton :loading type="submit">Register</UButton>
+        <nuxt-link to="/auth/login">Login</nuxt-link>
+      </div>
     </UForm>
   </div>
 </template>
