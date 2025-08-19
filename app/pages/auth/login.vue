@@ -60,7 +60,12 @@ const onLogin = async (event: FormSubmitEvent<Schema>) => {
       </UFormField>
 
       <div class="flex justify-between items-center">
-        <UButton :loading type="submit">Login</UButton>
+        <div class="flex items-center gap-3">
+          <u-button to="/oauth/github" leading-icon="ph:github-logo-duotone"
+            >Login with GitHub</u-button
+          >
+          <UButton :loading type="submit">Login</UButton>
+        </div>
         <nuxt-link to="/auth/register">Register</nuxt-link>
       </div>
     </UForm>

@@ -11,7 +11,7 @@ const logout = async () => {
 <template>
   <div>
     <nav class="h-14 px-10 flex align-center items-center justify-between">
-      <h2>Nuxt 4 Auth</h2>
+      <nuxt-link to="/">Nuxt 4 Auth</nuxt-link>
       <auth-state>
         <template #default="{ loggedIn }">
           <button v-if="loggedIn" @click="logout">Logout</button>
